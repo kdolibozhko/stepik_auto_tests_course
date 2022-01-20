@@ -1,3 +1,4 @@
 # stepik_auto_tests_course
-Homework tasks for course
-new changes
+https://stepik.org/course/575/syllabus
+My new project created for homeworks of this course
+Welcome to this repo
