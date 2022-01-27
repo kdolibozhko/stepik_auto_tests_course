@@ -14,11 +14,10 @@ def browser():
     print("\nquit browser..")
     browser.quit()
 
-@pytest.mark.parametrize('pageid', ["236895"])
+@pytest.mark.parametrize('pageid', ["236895","236896","236897","236898","236899","236903","236905"])
 def test_guest_should_see_login_link(browser, pageid):
     link = f"https://stepik.org/lesson/{pageid}/step/1"
     browser.get(link)
-    print("Hello")
     browser.implicitly_wait(10)
     field = browser.find_element_by_css_selector(".textarea")
     answer = math.log(int(time.time()))
@@ -27,4 +26,10 @@ def test_guest_should_see_login_link(browser, pageid):
         EC.element_to_be_clickable((By.CLASS_NAME, "submit-submission"))
     )
     button.click()
+    message1 = WebDriverWait(browser, 20).until(
+        EC.presence_of_element_located((By.CLASS_NAME, "smart-hints__hint"))).text
+    print(message1)
     time.sleep(3)
+
+if __name__ == "__main__":
+    unittest.main()
